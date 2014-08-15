@@ -1,5 +1,0 @@
-front_servos: 
-   num_servos: 1
-   "1": 
-    id: 1
-    link_name: careative_servo_creative_servo_arm_joint      
