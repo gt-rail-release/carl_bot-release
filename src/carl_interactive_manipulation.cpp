@@ -56,7 +56,7 @@ void CarlInteractiveManipulation::segmentedObjectsCallback(
   for (unsigned int i = 0; i < objectList->objects.size(); i++)
   {
     visualization_msgs::InteractiveMarker objectMarker;
-    objectMarker.header = objectList->header;
+    objectMarker.header = objectList->objects[i].objectCloud.header;
 
     objectMarker.pose.position.x = 0.0;
     objectMarker.pose.position.y = 0.0;
@@ -311,7 +311,7 @@ void CarlInteractiveManipulation::processHandMarkerFeedback(
           homeGoal.retractPosition.joints.resize(6);
           homeGoal.retractPosition.joints[0] = -2.57;
           homeGoal.retractPosition.joints[1] = 1.39;
-          homeGoal.retractPosition.joints[2] = .377;
+          homeGoal.retractPosition.joints[2] = .527;
           homeGoal.retractPosition.joints[3] = -.084;
           homeGoal.retractPosition.joints[4] = .515;
           homeGoal.retractPosition.joints[5] = -1.745;
