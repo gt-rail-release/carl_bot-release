@@ -1,0 +1,12 @@
+Source: ros-indigo-carl-interactive-manipulation
+Section: misc
+Priority: extra
+Maintainer: David Kent <davidkent@wpi.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-actionlib, ros-indigo-catkin, ros-indigo-interactive-markers, ros-indigo-rail-segmentation, ros-indigo-roscpp, ros-indigo-sensor-msgs, ros-indigo-wpi-jaco-msgs
+Homepage: http://ros.org/wiki/carl_bot
+Standards-Version: 3.9.2
+
+Package: ros-indigo-carl-interactive-manipulation
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-actionlib, ros-indigo-interactive-markers, ros-indigo-rail-segmentation, ros-indigo-roscpp, ros-indigo-sensor-msgs, ros-indigo-wpi-jaco-msgs
+Description: Interactive Manipulation for CARL
