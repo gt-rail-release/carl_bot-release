@@ -4,7 +4,7 @@ project(carl_interactive_manipulation)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS actionlib interactive_markers rail_segmentation roscpp sensor_msgs wpi_jaco_msgs)
+find_package(catkin REQUIRED COMPONENTS actionlib interactive_markers rail_pick_and_place_msgs rail_segmentation roscpp sensor_msgs wpi_jaco_msgs)
 
 ###################################################
 ## Declare things to be passed to other projects ##
@@ -33,7 +33,7 @@ target_link_libraries(carl_interactive_manipulation
   ${catkin_LIBRARIES}
 )
 ## Add cmake target dependencies of the executable/library
-add_dependencies(${PROJECT_NAME} wpi_jaco_msgs_gencpp)
+add_dependencies(${PROJECT_NAME} wpi_jaco_msgs_gencpp rail_pick_and_place_msgs_gencpp)
 
 #############
 ## Install ##
