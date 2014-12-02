@@ -131,6 +131,7 @@ private:
   bool EStopEnabled; /*!< software emergency stop for the arm*/
   bool helpDisplayed; /*!< flag so help is not repeatedly displayed*/
   bool deadman; /*!< save state of deadman switch */
+  bool use_teleop_safety; /*!< launch param to determine which node to publish command velocities to */
 };
 
 /*!
