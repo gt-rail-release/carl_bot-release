@@ -1,0 +1,70 @@
+ros-indigo-carl-tools (0.0.11-0trusty) trusty; urgency=high
+
+  * cleanup
+  * added robustness to failed transform samples
+  * Updated transform between asus mount and asus; added carl_tools for miscellaneous packages, currently including calibration for the asus camera transform.
+  * Contributors: David Kent, Russell Toris
+
+ -- Russell Toris <rctoris@wpi.edu>  Thu, 18 Dec 2014 05:00:00 -0000
+
+ros-indigo-carl-tools (0.0.10-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 02 Dec 2014 05:00:00 -0000
+
+ros-indigo-carl-tools (0.0.9-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 22 Oct 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.8-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 03 Oct 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.7-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 22 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.6-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 19 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.5-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 10 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.4-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 02 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.3-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 25 Aug 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.2-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 18 Aug 2014 04:00:00 -0000
+
+ros-indigo-carl-tools (0.0.1-0trusty) trusty; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 15 Aug 2014 04:00:00 -0000
+
+
