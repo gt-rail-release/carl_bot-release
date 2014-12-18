@@ -30,6 +30,7 @@ install:
   - git clone https://github.com/WPI-RAIL/rail_segmentation.git
   - git clone https://github.com/WPI-RAIL/rail_pick_and_place.git
   - git clone https://github.com/ros-perception/perception_pcl.git
+  - git clone https://github.com/sniekum/ar_track_alvar_msgs.git
   - cd ../
   - rosdep install --from-paths src --ignore-src --rosdistro hydro -y
 
@@ -39,5 +40,6 @@ script:
   - catkin_make install
   - source install/setup.bash
   - cd src/package
-  - /opt/ros/hydro/share/xacro/xacro.py carl_description/robots/carl.urdf.xacro >> sanity.urdf
-  - diff sanity.urdf carl_description/robots/carl.urdf
+  - ./carl_description/scripts/minify.bash
+  - git diff --exit-code
+  - /opt/ros/hydro/share/xacro/xacro.py carl_description/robots/carl.urdf.xacro
