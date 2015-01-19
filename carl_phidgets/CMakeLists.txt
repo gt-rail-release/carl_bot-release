@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(carl_dynamixel)
+project(carl_phidgets)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp dynamixel_msgs sensor_msgs)
+find_package(catkin REQUIRED COMPONENTS geometry_msgs libphidgets roscpp sensor_msgs std_msgs std_srvs tf)
 
 ###################################################
 ## Declare things to be passed to other projects ##
@@ -13,7 +13,11 @@ find_package(catkin REQUIRED COMPONENTS roscpp dynamixel_msgs sensor_msgs)
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-catkin_package()
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES phidgets_api
+  CATKIN_DEPENDS geometry_msgs libphidgets roscpp sensor_msgs std_msgs std_srvs tf
+)
 
 ###########
 ## Build ##
@@ -24,29 +28,31 @@ include_directories(include
   ${catkin_INCLUDE_DIRS}
 )
 
+## Declare a cpp library
+add_library(phidgets_imu src/imu_ros_i.cpp)
+add_library(phidgets_api src/phidget.cpp src/imu.cpp)
+
 ## Declare a cpp executable
-add_executable(back_joints_node src/back_joint_node.cpp)
-add_executable(servo_pan_tilt src/servo_pan_tilt.cpp)
-add_executable(front_joints_node src/front_joint_node.cpp)
+add_executable(phidgets_imu_node src/phidgets_imu_node.cpp)
+add_executable(orientation_filter src/orientation_filter.cpp)
+
+add_dependencies(phidgets_imu phidgets_api)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(back_joints_node
-  ${catkin_LIBRARIES}
-)
-target_link_libraries(servo_pan_tilt
-  ${catkin_LIBRARIES}
-)
+target_link_libraries(phidgets_imu ${catkin_LIBRARIES} phidgets_api)
+target_link_libraries(phidgets_imu_node ${catkin_LIBRARIES} phidgets_imu)
+target_link_libraries(phidgets_api ${catkin_LIBRARIES})
+target_link_libraries(orientation_filter ${catkin_LIBRARIES})
 
-target_link_libraries(front_joints_node
-  ${catkin_LIBRARIES}
-)
 
 #############
 ## Install ##
 #############
 
 ## Mark executables and/or libraries for installation
-install(TARGETS back_joints_node front_joints_node servo_pan_tilt
+install(TARGETS phidgets_api phidgets_imu phidgets_imu_node orientation_filter
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
@@ -59,9 +65,4 @@ install(DIRECTORY include/${PROJECT_NAME}/
 ## Copy launch files
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
-)
-
-## Copy configuration files
-install(DIRECTORY config/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/config
 )
