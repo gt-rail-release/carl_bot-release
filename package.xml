@@ -1,6 +1,6 @@
- <package>
+<package>
   <name>carl_bot</name>
-  <version>0.0.11</version>
+  <version>0.0.12</version>
   <description>Metapackage for CARL (Crowdsourcing for Autonomous Robot Learning) Robot</description>
 
   <maintainer email="rctoris@wpi.edu">Russell Toris</maintainer>
@@ -22,6 +22,7 @@
   <run_depend>carl_description</run_depend>
   <run_depend>carl_dynamixel</run_depend>
   <run_depend>carl_interactive_manipulation</run_depend>
+  <run_depend>carl_phidgets</run_depend>
   <run_depend>carl_teleop</run_depend>
   <run_depend>carl_tools</run_depend>
   
