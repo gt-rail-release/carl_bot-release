@@ -1,0 +1,102 @@
+ros-indigo-carl-phidgets (0.0.14-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Fri, 06 Feb 2015 05:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.13-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Wed, 21 Jan 2015 05:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.12-0trusty) trusty; urgency=high
+
+  * cleanup of cmake
+  * Orientation filter ignores accelerometer measurements when anything more than the gravity vector is detected
+  * IMU filter for top sensor strut orientation
+  * Filter tuning
+  * Filtering for base IMU initial commit
+  * sign error
+  * Update README.md
+  * Fixed sign error
+  * sign error
+  * swapped pitch/roll
+  * Added joints to CARL urdf to allow for orientation adjustments from IMU data, implemented a static orientation correction from accelerometer data
+  * Update README.md
+  * Updated readme and removed unused nodelet stuff
+  * Added launch file to startup both of CARL's IMUs
+  * Parameterized device selection for using multiple IMUs
+  * fixed install issue
+  * carl_phidgets initial commit
+  * Contributors: David Kent, Russell Toris
+
+ -- David Kent <davidkent@wpi.edu>  Mon, 19 Jan 2015 05:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.11-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Thu, 18 Dec 2014 05:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.10-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Tue, 02 Dec 2014 05:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.9-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Wed, 22 Oct 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.8-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Fri, 03 Oct 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.7-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Mon, 22 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.6-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Fri, 19 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.5-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Wed, 10 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.4-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Tue, 02 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.3-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Mon, 25 Aug 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.2-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Mon, 18 Aug 2014 04:00:00 -0000
+
+ros-indigo-carl-phidgets (0.0.1-0trusty) trusty; urgency=high
+
+
+
+ -- David Kent <davidkent@wpi.edu>  Fri, 15 Aug 2014 04:00:00 -0000
+
+
