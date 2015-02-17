@@ -1,3 +1,32 @@
+## carl_bot (indigo) - 0.0.16-0
+
+The packages in the `carl_bot` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --rosdistro indigo --track indigo carl_bot` on `Tue, 17 Feb 2015 19:57:12 -0000`
+
+These packages were released:
+- `carl_bot`
+- `carl_bringup`
+- `carl_description`
+- `carl_dynamixel`
+- `carl_interactive_manipulation`
+- `carl_phidgets`
+- `carl_teleop`
+- `carl_tools`
+
+Version of package(s) in repository `carl_bot`:
+- upstream repository: https://github.com/WPI-RAIL/carl_bot.git
+- release repository: https://github.com/wpi-rail-release/carl_bot-release.git
+- rosdistro version: `0.0.15-0`
+- old version: `0.0.15-0`
+- new version: `0.0.16-0`
+
+Versions of tools used:
+- bloom version: `0.5.18`
+- catkin_pkg version: `0.2.6`
+- rosdep version: `0.11.1`
+- rosdistro version: `0.4.0`
+- vcstools version: `0.1.36`
+
+
 ## carl_bot (indigo) - 0.0.15-0
 
 The packages in the `carl_bot` repository were released into the `indigo` distro by running `/usr/bin/bloom-release --rosdistro indigo --track indigo carl_bot` on `Tue, 10 Feb 2015 14:07:29 -0000`
