@@ -16,18 +16,18 @@
 
 #include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
+#include <carl_moveit/ArmAction.h>
 #include <interactive_markers/interactive_marker_server.h>
 #include <interactive_markers/menu_handler.h>
 #include <rail_manipulation_msgs/GripperAction.h>
 #include <rail_manipulation_msgs/LiftAction.h>
-#include <rail_manipulation_msgs/RecognizeObjectAction.h>
+#include <rail_manipulation_msgs/RecognizeAction.h>
 #include <rail_manipulation_msgs/SegmentedObjectList.h>
 #include <rail_pick_and_place_msgs/PickupSegmentedObject.h>
 #include <rail_segmentation/RemoveObject.h>
 #include <wpi_jaco_msgs/CartesianCommand.h>
 #include <wpi_jaco_msgs/EStop.h>
 #include <wpi_jaco_msgs/GetCartesianPosition.h>
-#include <wpi_jaco_msgs/HomeArmAction.h>
 #include <wpi_jaco_msgs/JacoFK.h>
 #include <wpi_jaco_msgs/QuaternionToEuler.h>
 #include <sensor_msgs/JointState.h>
@@ -140,7 +140,7 @@ private:
   ros::Publisher cartesianCmd;
   ros::Publisher segmentedObjectsPublisher;
   ros::Subscriber jointStateSubscriber;
-  ros::Subscriber segmentedObjectsSubscriber;
+  ros::Subscriber recognizedObjectsSubscriber;
 
   //services
   ros::ServiceClient armCartesianPositionClient;
@@ -154,8 +154,8 @@ private:
   //actionlib
   actionlib::SimpleActionClient<rail_manipulation_msgs::GripperAction> acGripper;
   actionlib::SimpleActionClient<rail_manipulation_msgs::LiftAction> acLift;
-  actionlib::SimpleActionClient<wpi_jaco_msgs::HomeArmAction> acHome;
-  actionlib::SimpleActionClient<rail_manipulation_msgs::RecognizeObjectAction> acRecognizeObject;
+  actionlib::SimpleActionClient<carl_moveit::ArmAction> acArm;
+  actionlib::SimpleActionClient<rail_manipulation_msgs::RecognizeAction> acRecognize;
 
   boost::shared_ptr<interactive_markers::InteractiveMarkerServer> imServer; //!< interactive marker server
   interactive_markers::MenuHandler menuHandler; //!< interactive marker menu handler
