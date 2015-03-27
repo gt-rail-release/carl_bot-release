@@ -3,8 +3,8 @@
 using namespace std;
 
 CarlInteractiveManipulation::CarlInteractiveManipulation() :
-    acGripper("jaco_arm/manipulation/gripper", true), acLift("jaco_arm/manipulation/lift", true), acHome(
-        "carl_moveit_wrapper/common_actions/ready_arm", true), acRecognizeObject("pc_recognition/recognize_object", true)
+    acGripper("jaco_arm/manipulation/gripper", true), acLift("jaco_arm/manipulation/lift", true), acArm(
+        "carl_moveit_wrapper/common_actions/arm_action", true), acRecognize("rail_recognition/recognize", true)
 {
   joints.resize(6);
 
@@ -12,8 +12,7 @@ CarlInteractiveManipulation::CarlInteractiveManipulation() :
   cartesianCmd = n.advertise<wpi_jaco_msgs::CartesianCommand>("jaco_arm/cartesian_cmd", 1);
   segmentedObjectsPublisher = n.advertise<rail_manipulation_msgs::SegmentedObjectList>("rail_segmentation/segmented_objects", 1);
   jointStateSubscriber = n.subscribe("jaco_arm/joint_states", 1, &CarlInteractiveManipulation::updateJoints, this);
-  segmentedObjectsSubscriber = n.subscribe("rail_segmentation/segmented_objects", 1,
-                                           &CarlInteractiveManipulation::segmentedObjectsCallback, this);
+  recognizedObjectsSubscriber = n.subscribe("rail_recognition/recognized_objects", 1, &CarlInteractiveManipulation::segmentedObjectsCallback, this);
 
   //services
   armCartesianPositionClient = n.serviceClient<wpi_jaco_msgs::GetCartesianPosition>("jaco_arm/get_cartesian_position");
@@ -28,7 +27,7 @@ CarlInteractiveManipulation::CarlInteractiveManipulation() :
   ROS_INFO("Waiting for grasp, and pickup action servers...");
   acGripper.waitForServer();
   acLift.waitForServer();
-  acHome.waitForServer();
+  acArm.waitForServer();
   ROS_INFO("Finished waiting for action servers");
 
   markerPose.resize(6);
@@ -161,8 +160,7 @@ void CarlInteractiveManipulation::segmentedObjectsCallback(
     objectLabelControl.interaction_mode = visualization_msgs::InteractiveMarkerControl::NONE;
     objectLabelControl.always_visible = true;
     visualization_msgs::Marker objectLabel;
-    //objectLabel.header = objectList->objects[i].point_cloud.header;
-    objectLabel.header.frame_id = "base_footprint"; //not sure why, but this makes all of the markers work
+    objectLabel.header = objectList->objects[i].point_cloud.header;
     objectLabel.type = visualization_msgs::Marker::TEXT_VIEW_FACING;
     objectLabel.pose.position.x = objectList->objects[i].centroid.x;
     objectLabel.pose.position.y = objectList->objects[i].centroid.y;
@@ -333,17 +331,10 @@ void CarlInteractiveManipulation::processRecognizeMarkerFeedback(
   if (feedback->event_type == visualization_msgs::InteractiveMarkerFeedback::MENU_SELECT)
   {
     int objectIndex = atoi(feedback->marker_name.substr(6).c_str());
-    rail_manipulation_msgs::RecognizeObjectGoal goal;
-    goal.object = segmentedObjectList.objects[objectIndex];
-    acRecognizeObject.sendGoal(goal);
-    acRecognizeObject.waitForResult(ros::Duration(10.0));
-    rail_manipulation_msgs::RecognizeObjectResultConstPtr result = acRecognizeObject.getResult();
-
-    if (result->object.recognized)
-    {
-      segmentedObjectList.objects[objectIndex] = result->object;
-      segmentedObjectsPublisher.publish(segmentedObjectList);
-    }
+    rail_manipulation_msgs::RecognizeGoal goal;
+    goal.index = objectIndex;
+    acRecognize.sendGoal(goal);
+    acRecognize.waitForResult(ros::Duration(10.0));
   }
 }
 
@@ -436,32 +427,19 @@ void CarlInteractiveManipulation::processHandMarkerFeedback(
       {
         acGripper.cancelAllGoals();
         acLift.cancelAllGoals();
-        wpi_jaco_msgs::HomeArmGoal homeGoal;
-        homeGoal.retract = false;
-        homeGoal.numAttempts = 3;
-        acHome.sendGoal(homeGoal);
-        acHome.waitForResult(ros::Duration(10.0));
+        carl_moveit::ArmGoal homeGoal;
+        homeGoal.action = carl_moveit::ArmGoal::READY;
+        acArm.sendGoal(homeGoal);
+        acArm.waitForResult(ros::Duration(10.0));
       }
       else if (feedback->menu_entry_id == 6)
       {
         acGripper.cancelAllGoals();
         acLift.cancelAllGoals();
-        wpi_jaco_msgs::HomeArmGoal homeGoal;
-        homeGoal.retract = true;
-        homeGoal.retractPosition.position = true;
-        homeGoal.retractPosition.armCommand = true;
-        homeGoal.retractPosition.fingerCommand = false;
-        homeGoal.retractPosition.repeat = false;
-        homeGoal.retractPosition.joints.resize(6);
-        homeGoal.retractPosition.joints[0] = -2.57;
-        homeGoal.retractPosition.joints[1] = 1.39;
-        homeGoal.retractPosition.joints[2] = .527;
-        homeGoal.retractPosition.joints[3] = -.084;
-        homeGoal.retractPosition.joints[4] = .515;
-        homeGoal.retractPosition.joints[5] = -1.745;
-        homeGoal.numAttempts = 3;
-        acHome.sendGoal(homeGoal);
-        acHome.waitForResult(ros::Duration(15.0));
+        carl_moveit::ArmGoal homeGoal;
+        homeGoal.action = carl_moveit::ArmGoal::RETRACT;
+        acArm.sendGoal(homeGoal);
+        acArm.waitForResult(ros::Duration(15.0));
       }
     }
     break;
