@@ -1,0 +1,53 @@
+<!--
+   Author: David Kent, Worcester Polytechnic Institute
+   Author: Russell Toris, Worcester Polytechnic Institute
+   Author: Brian Hetherman, Worcester Polytechnic Institute
+  Version: August 4, 2014
+-->
+
+<launch>
+  <!-- Safety Params -->
+  <arg name="safety" default="true" />
+
+  <!-- Segmentation Params -->
+  <arg name="nav" default="false" />
+  <arg name="debug" default="false" />
+
+  <!-- Recognition Params -->
+  <arg name="segmented_objects_topic" default="/rail_segmentation/segmented_objects" />
+  <arg name="spatial_world_host" default="robotsfor.me" />
+  <arg name="spatial_world_password" default="$(env RMS_PW)" />
+
+  <!-- Manipulation Params -->
+  <arg name="using_pickup" default="true" />
+
+  <include file="$(find carl_bringup)/launch/arm.launch">
+    <arg name="using_pickup" value="$(arg using_pickup)" />
+  </include>
+  <include file="$(find carl_bringup)/launch/base.launch" /> 
+  <include file="$(find carl_bringup)/launch/sensors.launch" />
+  <include file="$(find carl_bringup)/launch/robot_model.launch" />
+  <include file="$(find carl_teleop)/launch/carl_joy_teleop.launch" />
+  <include file="$(find carl_moveit)/launch/carl_moveit_full.launch" />
+
+  <!-- Check for safety -->
+  <group if="$(arg safety)">
+    <include file="$(find carl_safety)/launch/carl_safety_basic.launch" />
+  </group>
+
+  <!-- Check for navigation -->
+  <group if="$(arg nav)">
+    <include file="$(find carl_navigation)/launch/navigation_layered.launch" />
+    <node pkg="carl_interactive_manipulation" type="create_parking_spots" name="create_parking_spots" output="screen" />
+    <include file="$(find world_item_observer)/launch/world_item_observer.launch">
+      <arg name="spatial_world_host" value="$(arg spatial_world_host)" />
+      <arg name="spatial_world_password" value="$(arg spatial_world_password)" />
+    </include>
+  </group>
+
+  <include file="$(find carl_bringup)/launch/carl_recognition.launch">
+    <arg name="nav" value="$(arg nav)" />
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="segmented_objects_topic" value="$(arg segmented_objects_topic)" />
+  </include>
+</launch>
