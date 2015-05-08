@@ -1,0 +1,12 @@
+Source: ros-indigo-carl-bot
+Section: misc
+Priority: extra
+Maintainer: Russell Toris <rctoris@wpi.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: http://ros.org/wiki/carl_bot
+Standards-Version: 3.9.2
+
+Package: ros-indigo-carl-bot
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-carl-bringup, ros-indigo-carl-description, ros-indigo-carl-dynamixel, ros-indigo-carl-interactive-manipulation, ros-indigo-carl-phidgets, ros-indigo-carl-teleop, ros-indigo-carl-tools
+Description: Metapackage for CARL (Crowdsourcing for Autonomous Robot Learning) Robot
