@@ -1,0 +1,16 @@
+<!--
+   Author: David Kent, Worcester Polytechnic Institute
+   Author: Russell Toris, Worcester Polytechnic Institute
+  Version: August 4, 2014
+-->
+
+<launch>
+  <arg name="using_pickup" default="true" />
+  <arg name="using_recognition" default="true" />
+
+  <include file="$(find wpi_jaco_wrapper)/launch/arm.launch" />
+  <node pkg="carl_interactive_manipulation" type="carl_interactive_manipulation" name="carl_interactive_manipulation" output="screen">
+    <param name="using_pickup" value="$(arg using_pickup)" />
+    <param name="using_recognition" value="$(arg using_recognition)" />
+  </node>
+</launch>
