@@ -1,0 +1,12 @@
+Source: ros-indigo-carl-bringup
+Section: misc
+Priority: extra
+Maintainer: Russell Toris <rctoris@wpi.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: http://ros.org/wiki/carl_bringup
+Standards-Version: 3.9.2
+
+Package: ros-indigo-carl-bringup
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-carl-description, ros-indigo-carl-dynamixel, ros-indigo-carl-interactive-manipulation, ros-indigo-carl-moveit, ros-indigo-carl-safety, ros-indigo-carl-teleop, ros-indigo-m4atx-battery-monitor, ros-indigo-openni2-launch, ros-indigo-rail-recognition, ros-indigo-rail-segmentation, ros-indigo-ros-ethernet-rmp, ros-indigo-urg-node, ros-indigo-world-item-observer, ros-indigo-wpi-jaco-wrapper
+Description: CARL Bringup Launch Scripts
