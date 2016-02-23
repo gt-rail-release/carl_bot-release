@@ -1,0 +1,256 @@
+ros-indigo-carl-teleop (0.0.34-0saucy) saucy; urgency=high
+
+  * bug fix from teleop cleanup
+  * updated class name for carl_joy_teleop
+  * Update package.xml
+  * Updates for new rail_manipulation_msgs
+  * Contributors: David Kent
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 23 Feb 2016 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.33-0saucy) saucy; urgency=high
+
+  * Bugfix on mode switching
+  * Contributors: David Kent
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 10 Aug 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.32-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 08 May 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.31-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Thu, 07 May 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.30-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 04 May 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.29-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 29 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.28-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 27 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.27-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 22 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.26-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 17 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.25-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 10 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.24-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 06 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.23-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 03 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.22-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 03 Apr 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.21-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 31 Mar 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.20-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 31 Mar 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.19-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 27 Mar 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.18-0saucy) saucy; urgency=high
+
+  * Merge branch 'develop' of github.com:WPI-RAIL/carl_bot into develop
+  * Switched to the new ready/retract action provided by carl_moveit_common_actions
+  * Contributors: David Kent
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 27 Mar 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.17-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 24 Mar 2015 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.16-0saucy) saucy; urgency=high
+
+  * Changed teleop segment call to segment_auto
+  * Contributors: David Kent
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 17 Feb 2015 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.15-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 10 Feb 2015 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.14-0saucy) saucy; urgency=high
+
+  * home/retract action input adjustment
+  * teleop adjustment for estop and home/retract with planning
+  * Set arm estop calls on the joystick controller
+  * Removed wait on home arm server so that the node can be started while running only CARL's basic functionality
+  * Switched home/retract actions to use motion planning, added home/retract/segment calls from joystick teleop
+  * Contributors: David Kent
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 06 Feb 2015 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.13-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 21 Jan 2015 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.12-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 19 Jan 2015 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.11-0saucy) saucy; urgency=high
+
+  * Fixed bug in IM where menu hover could cause pickup commands, added IM frontend and launch, updated joystick and keyboard teleop to use angular commands for finger commands so that fingers can be controlled even when the arm is in/near singularities, and updated metapackage manifest
+  * Contributors: David Kent
+
+ -- Russell Toris <rctoris@wpi.edu>  Thu, 18 Dec 2014 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.10-0saucy) saucy; urgency=high
+
+  * deleted everything
+  * Parameter, topic, and launch file cleanup for consistency
+  * changes to make teleop safety able to toggle on and off with launch paramater
+  * Contributors: Brian Hetherman, David Kent, Peter
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 02 Dec 2014 05:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.9-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 22 Oct 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.8-0saucy) saucy; urgency=high
+
+  * Revert "Changes to base teleop to increase safety"
+    This reverts commit ff0796d01abd7b8640db59a5e7789940692b9b4c.
+  * Changes to base teleop to increase safety
+  * Contributors: Brian Hetherman, Russell Toris
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 03 Oct 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.7-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 22 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.6-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 19 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.5-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Wed, 10 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.4-0saucy) saucy; urgency=high
+
+
+
+ -- Russell Toris <rctoris@wpi.edu>  Tue, 02 Sep 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.3-0saucy) saucy; urgency=high
+
+  * updates to teleop due to the bug in switching arm control modes
+  * Contributors: dekent
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 25 Aug 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.2-0saucy) saucy; urgency=high
+
+  * fixed missing build dep
+  * Contributors: Russell Toris
+
+ -- Russell Toris <rctoris@wpi.edu>  Mon, 18 Aug 2014 04:00:00 -0000
+
+ros-indigo-carl-teleop (0.0.1-0saucy) saucy; urgency=high
+
+  * revert changelogs
+  * changelog updated
+  * bugfix for camera teleop controls
+  * velocity commands and teleop controls for the second camera
+  * adjustments to asus joint servo speed
+  * Servo velocity control and teleop initial commit
+  * possible fix for arm stopping during teleop mode switches
+  * carl_teleop cleanup
+  * carl_description updated to use jaco_description instead of jaco_model, more carl_teleop cleanup
+  * updated jaco_msgs to wpi_jaco_msgs, misc. cleanup
+  * added keyboard teleop for the JACO arm to CARL keyboard teleop
+  * Added arm control to CARL teleop, and analog controller functionality to the base teleop
+  * carl teleop cleanup
+  * Using relative namespace for teleop node and loading default parameters for covarience.
+  * Reversed angular commands
+  * Added ability to cancel navigation planning with the controller
+  * Joy teleop only publishes cmd_vel when deadman switch is pressed.
+  * cleanup of carl teleop nodes
+  * cleanup of carl joy teleop
+  * Added launch file for joystick teleop.
+  * Added joy to build dependencies
+  * Removed unnecessary function
+  * Now using right joystick for angular control
+  * Added fixes is response to code review: authorship credit, doxygen, and formatting.
+  * Added deadman swtich and boost button.
+  * Added keyboard teleop
+  * Joy Teleop Works
+  * Created cpp file for joystick teleop
+  * Created package for carl teleoperation.
+  * Contributors: Russell Toris, Steven Kordell, dekent
+
+ -- Russell Toris <rctoris@wpi.edu>  Fri, 15 Aug 2014 04:00:00 -0000
+
+
